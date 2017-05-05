@@ -84,8 +84,12 @@ export class ElasticDirective implements AfterViewInit {
 			return;
 		}
 
-		this.textareaEl.style.height = 'auto';
-		this.textareaEl.style.height = this.textareaEl.scrollHeight + "px";
+		if (this.model && !this.model.value) {
+			this.textareaEl.style.height = '19px';
+		} else {
+			this.textareaEl.style.height = 'auto';
+			this.textareaEl.style.height = this.textareaEl.scrollHeight + "px";
+		}
 		//this.previousScrollHeight = this.textareaEl.scrollHeight;
 	}
 }
